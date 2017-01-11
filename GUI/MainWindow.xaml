@@ -1,0 +1,86 @@
+﻿<Window x:Class="Monitor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Monitor"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <DockPanel>
+            <DockPanel DockPanel.Dock="Top" Margin="5,5,5,0">
+                <TextBlock VerticalAlignment="Center" Margin="0,0,10,0">Show:</TextBlock>
+                <Button Name="btnShowNew" Width="40">New</Button>
+                <Button Name="btnShowFavorite" Width="40">Fav</Button>
+                <Button Name="btnShowAll" Width="40">All</Button>
+                <Button Name="btnShowHidden" Width="40">Hidden</Button>
+
+                <TextBlock VerticalAlignment="Center" Margin="30,0,10,0">Sort by:</TextBlock>
+                <Button Name="btnSortByPrice" Width="50">Price</Button>
+                <Button Name="btnSortByPricePerSqM" Width="50">Pr/m2</Button>
+                <Button Name="btnSortByDistance" Width="50">Dist</Button>
+                <Button Name="btnSortByRegion" Width="50">Region</Button>
+                
+                <Button Name="btnUpdate" Margin="30,0,0,0" Width="60">Update</Button>
+                <Button Name="btnResetNew" Width="60">Reset new</Button>
+                
+                <TextBlock Name="tbCount" FontSize="16" DockPanel.Dock="Right" VerticalAlignment="Center">0</TextBlock>
+                <TextBlock></TextBlock>
+            </DockPanel>
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="10,5,0,0">
+                <TextBlock Width="200" VerticalAlignment="Center" Margin="0,0,10,0">Name</TextBlock>
+                <TextBlock Width="40" VerticalAlignment="Center">Price</TextBlock>
+                <TextBlock Width="30" VerticalAlignment="Center">m2</TextBlock>
+                <TextBlock Width="40" VerticalAlignment="Center">Pr/m2</TextBlock>
+                <TextBlock Width="30" VerticalAlignment="Center">Zi.</TextBlock>
+                <TextBlock Width="40" VerticalAlignment="Center">Dist</TextBlock>
+                <TextBlock VerticalAlignment="Center">Region</TextBlock>
+            </StackPanel>
+            <ListView Name="lvApartments" Margin="5"></ListView>
+        </DockPanel>
+
+        <DockPanel Grid.Column="1" Margin="5">
+            <TextBlock Name="tbName" FontSize="24" Margin="0,20,0,0" DockPanel.Dock="Top" TextWrapping="Wrap" Height="70">sdfsf</TextBlock>
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                <TextBlock Name="tbPrice" FontSize="24" Margin="0,0,5,0">999000</TextBlock>
+                <TextBlock VerticalAlignment="Center">€</TextBlock>
+                <TextBlock Name="tbSqm" FontSize="24" Margin="50,0,0,0">145</TextBlock>
+                <TextBlock VerticalAlignment="Center" Margin="5,0,0,0">m2</TextBlock>
+                <TextBlock Name="tbRooms" FontSize="24" Margin="50,0,0,0">3</TextBlock>
+                <TextBlock VerticalAlignment="Center" Margin="5,0,0,0">rooms</TextBlock>
+                <TextBlock Name="tbRegion" VerticalAlignment="Center" Margin="50,0,0,0">Wilhelmsruh</TextBlock>
+                <TextBlock Name="tbStreet" VerticalAlignment="Center" Margin="5,0,0,0">Street</TextBlock>
+            </StackPanel>
+            <DockPanel DockPanel.Dock="Top" Margin="0,10">
+                <Button Name="btnOpen" Width="100" Height="40">Open on site</Button>
+                <Button Name="btnOpenMap" Width="100" Height="40" Margin="5,0">Open map</Button>
+                <ToggleButton Name="btnFavorite" Width="100" Height="40">Favorite</ToggleButton>
+                <Button Name="btnHide" Width="100" Height="40" Margin="5,0">Hide</Button>
+                <TextBlock Margin="30,0,5,0" VerticalAlignment="Center">Comment:</TextBlock>
+                <TextBox AcceptsReturn="True"></TextBox>
+            </DockPanel>
+
+            <DockPanel DockPanel.Dock="Top" Margin="0,10">
+                <StackPanel Orientation="Horizontal">
+                    <Button Name="btnImgPrev" Width="40" Height="40">&lt;</Button>
+                    <Button Name="btnImgNext" Width="40" Height="40" Margin="5,0,0,0">&gt;</Button>
+                    <TextBlock Name="tbCurrentImage" FontSize="24" VerticalAlignment="Center" Margin="5,0">1/1</TextBlock>
+                    <StackPanel Name="spSmallImages" Height="40" Margin="10,0,0,0" Orientation="Horizontal">
+                    </StackPanel>
+                </StackPanel>
+            </DockPanel>
+            
+            <Image Name="imgLarge"></Image>
+        </DockPanel>
+
+        <Grid Name="gridFullScreen" Grid.ColumnSpan="2" Visibility="Collapsed">
+            <Rectangle Fill="White"></Rectangle>
+            <Image Name="imgFullScreen"/>
+        </Grid>
+    </Grid>
+</Window>
