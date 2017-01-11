@@ -45,16 +45,16 @@
         </DockPanel>
 
         <DockPanel Grid.Column="1" Margin="5">
-            <TextBlock Name="tbName" FontSize="24" Margin="0,20,0,0" DockPanel.Dock="Top" TextWrapping="Wrap" Height="70">sdfsf</TextBlock>
+            <TextBlock Name="tbName" FontSize="24" Margin="0,20,0,0" DockPanel.Dock="Top" TextWrapping="Wrap" Height="70"></TextBlock>
             <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
-                <TextBlock Name="tbPrice" FontSize="24" Margin="0,0,5,0">999000</TextBlock>
+                <TextBlock Name="tbPrice" FontSize="24" Margin="0,0,5,0"></TextBlock>
                 <TextBlock VerticalAlignment="Center">€</TextBlock>
-                <TextBlock Name="tbSqm" FontSize="24" Margin="50,0,0,0">145</TextBlock>
+                <TextBlock Name="tbSqm" FontSize="24" Margin="50,0,0,0"></TextBlock>
                 <TextBlock VerticalAlignment="Center" Margin="5,0,0,0">m2</TextBlock>
-                <TextBlock Name="tbRooms" FontSize="24" Margin="50,0,0,0">3</TextBlock>
+                <TextBlock Name="tbRooms" FontSize="24" Margin="50,0,0,0"></TextBlock>
                 <TextBlock VerticalAlignment="Center" Margin="5,0,0,0">rooms</TextBlock>
-                <TextBlock Name="tbRegion" VerticalAlignment="Center" Margin="50,0,0,0">Wilhelmsruh</TextBlock>
-                <TextBlock Name="tbStreet" VerticalAlignment="Center" Margin="5,0,0,0">Street</TextBlock>
+                <TextBlock Name="tbRegion" VerticalAlignment="Center" Margin="50,0,0,0"></TextBlock>
+                <TextBlock Name="tbStreet" VerticalAlignment="Center" Margin="5,0,0,0"></TextBlock>
             </StackPanel>
             <DockPanel DockPanel.Dock="Top" Margin="0,10">
                 <Button Name="btnOpen" Width="100" Height="40">Open on site</Button>

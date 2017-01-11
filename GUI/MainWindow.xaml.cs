@@ -162,8 +162,15 @@ namespace Monitor
 
         private void LoadDB()
         {
-            using ( var sw = new StreamReader( "db.xml" ) )
-                db = new XmlSerializer( typeof( List<Apartment> ) ).Deserialize( sw ) as List<Apartment>;
+            try
+            {
+                using ( var sw = new StreamReader( "db.xml" ) )
+                    db = new XmlSerializer( typeof( List<Apartment> ) ).Deserialize( sw ) as List<Apartment>;
+            }
+            catch ( Exception )
+            {
+                db = new List<Apartment>();
+            }
         }
 
         private void ApplyFilters()
@@ -188,14 +195,14 @@ namespace Monitor
                 }
             }
 
-            if(sortBy == SortBy.Price)
+            if ( sortBy == SortBy.Price )
                 filteredDb.Sort( ( a1, a2 ) => a1.Price.CompareTo( a2.Price ) );
-            else if (sortBy == SortBy.Region)
+            else if ( sortBy == SortBy.Region )
                 filteredDb.Sort( ( a1, a2 ) => a1.Region.CompareTo( a2.Region ) );
             else if ( sortBy == SortBy.Distance )
                 filteredDb.Sort( ( a1, a2 ) => a1.Distance.CompareTo( a2.Distance ) );
-            else if (sortBy == SortBy.PricePerSqM)
-                filteredDb.Sort( ( a1, a2 ) => (a1.Price / a1.SqM).CompareTo( a2.Price / a2.SqM ) );
+            else if ( sortBy == SortBy.PricePerSqM )
+                filteredDb.Sort( ( a1, a2 ) => ( a1.Price / a1.SqM ).CompareTo( a2.Price / a2.SqM ) );
         }
 
         private void SaveDB()
@@ -287,7 +294,7 @@ namespace Monitor
 
             using ( var sw = new StreamReader( @"..\..\..\Downloader\bin\Debug\new.xml" ) )
             {
-                var newList = new XmlSerializer( typeof (List<Apartment>) ).Deserialize( sw ) as List<Apartment>;
+                var newList = new XmlSerializer( typeof( List<Apartment> ) ).Deserialize( sw ) as List<Apartment>;
 
                 // Duplicate IDs possible, so no ToDictionary()
                 var newDb = newList.GroupBy( x => x.Id ).Where( g => g.Count() == 1 ).Select( g => g.First() ).ToDictionary( a => a.Id );
