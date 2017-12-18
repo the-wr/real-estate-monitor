@@ -19,12 +19,15 @@
                 <Button Name="btnShowFavorite" Width="40">Fav</Button>
                 <Button Name="btnShowAll" Width="40">All</Button>
                 <Button Name="btnShowHidden" Width="40">Hidden</Button>
+                <Button Name="btnShowRented" Width="40">Rent</Button>
 
                 <TextBlock VerticalAlignment="Center" Margin="30,0,10,0">Sort by:</TextBlock>
-                <Button Name="btnSortByPrice" Width="50">Price</Button>
-                <Button Name="btnSortByPricePerSqM" Width="50">Pr/m2</Button>
-                <Button Name="btnSortByDistance" Width="50">Dist</Button>
-                <Button Name="btnSortByRegion" Width="50">Region</Button>
+                <Button Name="btnSortByPrice" Width="35">Price</Button>
+                <Button Name="btnSortByPricePerSqM" Width="35">Pr/m2</Button>
+                <Button Name="btnSortByDistance" Width="35">Dist</Button>
+                <Button Name="btnSortByRegion" Width="35">Reg</Button>
+                <Button Name="btnSortByIncome" Width="35">Inc</Button>
+                <Button Name="btnSortByPriceToIncome" Width="35">Pr/Inc</Button>
                 
                 <Button Name="btnUpdate" Margin="30,0,0,0" Width="60">Update</Button>
                 <Button Name="btnResetNew" Width="60">Reset new</Button>
@@ -35,8 +38,11 @@
             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="10,5,0,0">
                 <TextBlock Width="200" VerticalAlignment="Center" Margin="0,0,10,0">Name</TextBlock>
                 <TextBlock Width="40" VerticalAlignment="Center">Price</TextBlock>
+                <TextBlock Width="35" VerticalAlignment="Center">Hg.</TextBlock>
                 <TextBlock Width="30" VerticalAlignment="Center">m2</TextBlock>
                 <TextBlock Width="40" VerticalAlignment="Center">Pr/m2</TextBlock>
+                <TextBlock Width="35" VerticalAlignment="Center">Inc</TextBlock>
+                <TextBlock Width="35" VerticalAlignment="Center">Pr/Inc</TextBlock>
                 <TextBlock Width="30" VerticalAlignment="Center">Zi.</TextBlock>
                 <TextBlock Width="40" VerticalAlignment="Center">Dist</TextBlock>
                 <TextBlock VerticalAlignment="Center">Region</TextBlock>

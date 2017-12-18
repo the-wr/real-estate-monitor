@@ -10,8 +10,11 @@
         <StackPanel Orientation="Horizontal">
             <TextBlock Name="tbName" Width="200" VerticalAlignment="Center" Margin="0,0,10,0">bla bla bla</TextBlock>
             <TextBlock Name="tbPrice" Width="35" Margin="0,0,5,0" VerticalAlignment="Center">999000</TextBlock>
+            <TextBlock Name="tbHausgeld" Width="35" Margin="0,0,5,0" VerticalAlignment="Center">999000</TextBlock>
             <TextBlock Name="tbSqm" Width="30" VerticalAlignment="Center">145</TextBlock>
             <TextBlock Name="tbPricePerSqM" Width="40" VerticalAlignment="Center">2.594</TextBlock>
+            <TextBlock Name="tbIncome" Width="35" Margin="0,0,5,0" VerticalAlignment="Center">999000</TextBlock>
+            <TextBlock Name="tbPriceToIncome" Width="35" Margin="0,0,5,0" VerticalAlignment="Center">999000</TextBlock>
             <TextBlock Name="tbRooms" Width="30" VerticalAlignment="Center">3</TextBlock>
             <TextBlock Name="tbDist" Width="40" VerticalAlignment="Center">15</TextBlock>
             <TextBlock Name="tbRegion" VerticalAlignment="Center">Wilhelmsruh</TextBlock>

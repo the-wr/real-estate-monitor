@@ -29,6 +29,10 @@ namespace Monitor
             tbDist.Text = Math.Round( App.Distance, 1 ).ToString();
             tbRegion.Text = App.Region;
 
+            tbHausgeld.Text = App.Hausgeld != null ? $"{(int)App.Hausgeld}" : string.Empty;
+            tbIncome.Text = App.RentIncome != null ? $"{(int)App.RentIncome}" : string.Empty;
+            tbPriceToIncome.Text = App.PriceToIncome != null ? $"{(int)App.PriceToIncome}" : string.Empty;
+
             Background = Brushes.Transparent;
 
             if ( App.IsHidden )

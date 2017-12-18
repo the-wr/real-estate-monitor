@@ -16,8 +16,8 @@ namespace Monitor
     /// </summary>
     public partial class MainWindow: Window
     {
-        public enum SortBy { Price, PricePerSqM, Distance, Region };
-        public enum ShowMode { New, Favorites, All, Hidden };
+        public enum SortBy { Price, PricePerSqM, Distance, Region, Income, PriceToIncome };
+        public enum ShowMode { New, Favorites, All, Hidden, BlackList };
 
         private static string[] BlackList = { "vermietet", "investment", "investition", "anlage", "kapitalanleger" };
 
@@ -123,6 +123,12 @@ namespace Monitor
                 ApplyFilters();
                 PopulateList();
             };
+            btnShowRented.Click += delegate
+            {
+                showMode = ShowMode.BlackList;
+                ApplyFilters();
+                PopulateList();
+            };
             btnSortByPrice.Click += delegate
             {
                 sortBy = SortBy.Price;
@@ -144,6 +150,18 @@ namespace Monitor
             btnSortByRegion.Click += delegate
             {
                 sortBy = SortBy.Region;
+                ApplyFilters();
+                PopulateList();
+            };
+            btnSortByIncome.Click += delegate
+            {
+                sortBy = SortBy.Income;
+                ApplyFilters();
+                PopulateList();
+            };
+            btnSortByPriceToIncome.Click += delegate
+            {
+                sortBy = SortBy.PriceToIncome;
                 ApplyFilters();
                 PopulateList();
             };
@@ -203,6 +221,10 @@ namespace Monitor
                 filteredDb.Sort( ( a1, a2 ) => a1.Distance.CompareTo( a2.Distance ) );
             else if ( sortBy == SortBy.PricePerSqM )
                 filteredDb.Sort( ( a1, a2 ) => ( a1.Price / a1.SqM ).CompareTo( a2.Price / a2.SqM ) );
+            else if ( sortBy == SortBy.Income )
+                filteredDb.Sort( ( a1, a2 ) => Helpers.SortDesc( a1.RentIncome, a2.RentIncome ) );
+            else if ( sortBy == SortBy.PriceToIncome )
+                filteredDb.Sort( ( a1, a2 ) => Helpers.SortAsc( a1.PriceToIncome, a2.PriceToIncome ) );
         }
 
         private void SaveDB()
@@ -307,7 +329,13 @@ namespace Monitor
                     if ( oldDb.ContainsKey( kvp.Key ) )
                     {
                         // Old
-                        mergedList.Add( oldDb[kvp.Key] ); // keep modifications
+                        var app = oldDb[kvp.Key];
+                        var newApp = kvp.Value;
+                        mergedList.Add( app ); // keep modifications
+                        app.PriceToIncome = newApp.PriceToIncome;
+                        app.Hausgeld = newApp.Hausgeld;
+                        app.Provision = newApp.Provision;
+                        app.RentIncome = newApp.RentIncome;
                         oldDb.Remove( kvp.Key );
                     }
                     else

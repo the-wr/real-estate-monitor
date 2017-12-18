@@ -11,6 +11,12 @@ namespace Shared
         public int SqM { get; set; }
         public float Rooms { get; set; }
 
+        public float? Provision { get; set; }
+        public float? Hausgeld { get; set; }
+        public float? RentIncome { get; set; }
+
+        public float? PriceToIncome { get; set; }
+
         public string Street { get; set; }
         public string Region { get; set; }
         public float Distance { get; set; }
