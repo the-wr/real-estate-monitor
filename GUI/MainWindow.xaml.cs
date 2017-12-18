@@ -311,8 +311,8 @@ namespace Monitor
                 FileName = @"..\..\..\Downloader\bin\Debug\Downloader.exe",
                 Arguments = "web requests.txt new.xml"
             };
-            var process = Process.Start( psi );
-            process.WaitForExit();
+            //var process = Process.Start( psi );
+            //process.WaitForExit();
 
             using ( var sw = new StreamReader( @"..\..\..\Downloader\bin\Debug\new.xml" ) )
             {

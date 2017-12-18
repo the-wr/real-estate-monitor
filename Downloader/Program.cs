@@ -60,6 +60,7 @@ namespace Downloader
 
                         var pageUrl = hostName + pages[i];
                         var page = Helpers.GetPage( pageUrl );
+                        page = page.Replace( "><", ">\r\n<" );
 
                         contents.Add( page );
                         File.WriteAllText( $"Pages\\{urlIndex}-{i:000}.txt", page );
@@ -203,7 +204,8 @@ namespace Downloader
                     if ( line.Contains( "</h5>" ) && string.IsNullOrWhiteSpace( currentApartment.Name ) )
                     {
                         //var name = line.Replace( "</h5>", "" ).Replace( "-->", "" ).Trim( " ".ToCharArray() );
-                        var name = Helpers.ExtractTag( line, 2 );
+                        var name = 
+                            line.StartsWith( "<span" ) ? Helpers.ExtractTag( line, 4 ) : Helpers.ExtractTag( line, 2 );
                         currentApartment.Name =
                             name.Replace( "&auml;", "ä" ).Replace( "&uuml;", "ü" ).Replace( "&ouml;", "ö" );
                     }
