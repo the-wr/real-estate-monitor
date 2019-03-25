@@ -1,3 +1,5 @@
+Deprecated by https://github.com/the-wr/real-estate-finder
+
 # Real Estate monitor
 A front-end tool for a popular German real estate website
 
